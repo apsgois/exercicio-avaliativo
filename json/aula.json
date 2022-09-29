@@ -1,10 +1,26 @@
 [
     {
         "_id": {
-            "$oid": "6332e0a8b01128d31b0a0b40"
+            "$oid": "633612ecf0112de041241a72"
         },
-        "Aula": "Python",
-        "Professor": "Renzo",
-        "Alunos": "['Ana', 'GES', 7]\n"
+        "Aula": "BD2",
+        "Professor": {
+            "nome": "Renzo",
+            "especialidade": "Banco de dados"
+        },
+        "Alunos": [
+            {
+                "matricula": 25,
+                "curso": "GES",
+                "periodo": 7,
+                "nome": "ANA"
+            },
+            {
+                "matricula": 23,
+                "curso": "GET",
+                "periodo": 9,
+                "nome": "JOAO"
+            }
+        ]
     }
 ]

@@ -42,6 +42,7 @@ class Aula:
         lista = []
         for aluno in self.alunos:
             lista.append(aluno.to_string())
+        print(lista)
         return lista
 def default():
     print('Valor incorreto')
@@ -61,7 +62,10 @@ if __name__ == "__main__":
         x = input('Digite a opção desejada: ')
         match x:
             case '1':
-
+                assuntoDaAula = input('Entre com o assunto da aula:')
+                p1 = Professor('Banco de dados', 'Renzo')
+                Aula1 = Aula(assuntoDaAula)
+                Aula1.professor = p1
                 q_alunos = input('Quantos alunos tem na aula? ')
                 for q_alunos in range(int(q_alunos)):
                     nome = input('Digite o nome do aluno: ')
@@ -69,29 +73,29 @@ if __name__ == "__main__":
                     curso = input('Digite o curso do aluno: ')
                     periodo = int(input('Digite o periodo do aluno: '))
                     aluno = Aluno(matricula, curso, periodo, nome)
+                    Aula1.alunos.append(aluno)
 
-                assuntoDaAula = input('Entre com o assunto da aula:')
-                p1 = Professor('Banco de dados', 'Renzo')
-                Aula1 = Aula(assuntoDaAula)
-                Aula1.professor = p1
-                Aula1.alunos.append(aluno)
                 print(Aula1.getListaPresenca())
                 aula.create_aula(Aula1)
+                print('Aula cadastrada com sucesso!')
 
             case '2':
                 assunto = input('Digite o assunto da aula que deseja ver(Ira aparecer no aula.json):')
                 ler = aula.read(assunto)
+                print('Ver em aula.json')
                 writeAJson(ler, 'aula')
 
             case '3':
                 assunto_antigo = input('Digite o assunto da aula que deseja atualizar:')
                 assunto_novo = input('Digite o novo assunto da aula:')
                 assunto = aula.update(assunto_antigo, assunto_novo)
+                print('Assunto atualizado com sucesso!')
                 # writeAJson(assunto, 'aula')
 
             case '4':
                 assunto = input('Digite o assunto da aula que deseja deletar:')
                 aula.delete(assunto)
+                print('Aula deletada com sucesso!')
             case '5':
                 break
 
