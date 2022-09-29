@@ -28,7 +28,7 @@ class Aluno(Pessoa):
 
     def to_string(self):
         writeAJson(self.__dict__, "aluno")
-        return [{'matricula': self.matricula, 'curso': self.curso, 'periodo': self.periodo, 'nome': self.nome}]
+        return {'matricula': self.matricula, 'curso': self.curso, 'periodo': self.periodo, 'nome': self.nome}
 
 
 class Aula:
@@ -38,11 +38,10 @@ class Aula:
         self.assunto = assunto
 
 
-    def getListaPresenca(self) -> str:
-        lista = ''
+    def getListaPresenca(self) -> list:
+        lista = []
         for aluno in self.alunos:
-            lista = lista +  str(aluno.to_string()) + ','
-        writeAJson(lista, "lista")
+            lista.append(aluno.to_string())
         return lista
 def default():
     print('Valor incorreto')
@@ -66,9 +65,9 @@ if __name__ == "__main__":
                 q_alunos = input('Quantos alunos tem na aula? ')
                 for q_alunos in range(int(q_alunos)):
                     nome = input('Digite o nome do aluno: ')
-                    matricula = input('Digite a matricula do aluno: ')
+                    matricula = int(input('Digite a matricula do aluno: '))
                     curso = input('Digite o curso do aluno: ')
-                    periodo = input('Digite o periodo do aluno: ')
+                    periodo = int(input('Digite o periodo do aluno: '))
                     aluno = Aluno(matricula, curso, periodo, nome)
 
                 assuntoDaAula = input('Entre com o assunto da aula:')

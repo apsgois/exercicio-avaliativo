@@ -11,6 +11,14 @@ class AulaDAO:
         print(aula)
         res = self.collection.insert_one({"Aula":aula.assunto,"Professor":aula.professor.to_string(),"Alunos":aula.getListaPresenca()})
         return res.inserted_id
+        #
+        # data = {"Aula":"aula.assunto","Professor":"aula.professor.to_string()","Alunos":[
+        #     {"nome": "Joao", "especialidade": "Matematica"},
+        #     {"nome": "Maria", "especialidade": "Portugues"}
+        # ]}
+
+        # print(data)
+        # self.collection.insert_one(data)
 
     def read(self, assunto : str):
         return self.collection.find({'Aula': assunto})

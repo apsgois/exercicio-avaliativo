@@ -1,17 +1,9 @@
 [
     {
         "_id": {
-            "$oid": "6332e228a7d8a7a0f03c8b93"
+            "$oid": "6332e0a8b01128d31b0a0b40"
         },
-        "Aula": "Mongo",
-        "Professor": "Renzo",
-        "Alunos": "['Ana', 'GES', 7]\n"
-    },
-    {
-        "_id": {
-            "$oid": "6332e235a7d8a7a0f03c8b94"
-        },
-        "Aula": "Mongo",
+        "Aula": "Python",
         "Professor": "Renzo",
         "Alunos": "['Ana', 'GES', 7]\n"
     }
